@@ -1,0 +1,40 @@
+---
+title: "bar_graphs.Rmd"
+author: "Sergio H. Raspo"
+date: "20/5/2020"
+output: html_document
+---
+```{r}
+library(ggplot2)
+library(gcookbook)
+```
+
+
+```{r}
+BOD
+```
+
+## geom_col()
+To create a bargraphs you can choose between two function: geom_bar() and geom_col(). The last one, always need the y values to create a plot.
+```{r}
+ggplot(BOD, aes(x = Time, y = demand)) +
+  geom_col()
+```
+
+In this graphics one column is missing. So what can we do? treat the x value like discrete variable, using factor. Here in the next chunk
+```{r}
+ggplot(BOD, aes(x = factor(Time), y = demand)) +
+  geom_col()
+```
+
+What change in this graphics, there is no gap between x values.
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
